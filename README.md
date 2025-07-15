@@ -28,3 +28,5 @@
 
     - 동작
 
+    https://github.com/user-attachments/assets/b6044752-a866-4639-91b0-49174165eec7
+
