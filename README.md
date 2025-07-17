@@ -1,7 +1,10 @@
 # iot-raspberrypi-2025
 
 ## 1일차
-- LED, 스위치
+- LED
+    <img src="./image/ras0003.png" width="300">
+    
+- 스위치
 
 ## 2일차
 - 온습도 센서
@@ -30,3 +33,23 @@
 
     https://github.com/user-attachments/assets/b6044752-a866-4639-91b0-49174165eec7
 
+## 5일차
+
+## 6일차
+
+#### Flask 
+- 웹 서버와 웹 애플리케이션을 빠르게 만들 수 있게 해주는 파이썬 마이크로 프레임워크
+
+- 기본 구조
+
+    ``` python
+        from flask import Flask
+        app = Flask(__name__)       # 서버 객체 생성
+
+        @app.route('/')             # 루트 URL에 대한 응답 정의
+        def hello():
+            return "Hello World"
+
+        if __name__ == "__main__":
+            app.run(host='0.0.0.0') # 모든 아이피 처리 가능
+    ```
