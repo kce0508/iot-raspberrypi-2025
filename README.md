@@ -53,3 +53,36 @@
         if __name__ == "__main__":
             app.run(host='0.0.0.0') # 모든 아이피 처리 가능
     ```
+
+## 7일차
+
+#### Flask
+
+##### render_template
+- Flask에서 HTML파일을 웹페이지로 표시할 때 사용하는 함수, HTML안에 동적인 값을 넣어서 브라우저에 보여줄 수 있게 해준다.
+
+- 사용 방법
+
+    ```python 
+        from flask import Flask, render_temp
+
+        app = Flask(__name__)
+
+        @app.route('/')
+        def home():
+            return rendeer_template('index.html', name="user", age=25)
+    ```
+    - templates/index.html 파일안에서
+    ```html
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>홈페이지</title>
+        </head>
+        <body>
+            <h1>안녕하세요 {{name}} 님</h1>
+            <h1>당신의 나이는 {{age}}세 입니다. </h1>
+        </body>
+        </html>
+    ```
+    - 주의 : render_template에서 사용하는 HTML 파일은 반드시 templates 폴더 안에 있어야 한다.
