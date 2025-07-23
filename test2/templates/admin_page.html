@@ -1,0 +1,36 @@
+<h2>관리자모드</h2>
+<p>안녕하세요, 관리자 {{ username }}님!!</p>
+
+<h3> 전체 회원 목록 </h3>
+<table border="1">
+        <tr>
+                <th>아이디</th>
+                <th>권한</th>
+                <th>삭제</th>
+                <th>권한 변경</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ "관리자" if user.is_admin == '1' else "일반회원" }}</td>
+                <td>
+                        {% if user.id != username %}
+                        <form method="post" action="/delete_user">
+                                <input type="hidden" name="target_id" value="{{ user.id }}">
+                                <input type="hidden" name="admin_id" value="{{ username }}">
+                                <input type="submit" value="삭제">
+                        </form>
+                        {% endif %}
+                </td>
+                <td>
+                        {% if user.id != username %}
+                        <form method="post" action="/toggle_admin">
+                                <input type="hidden" name="target_id" value="{{ user.id }}">
+                                <input type="hidden" name="admin_id" value="{{ username }}">
+                                <input type="submit" value="권한변경">
+                        </form>
+                        {% endif %}
+                </td>
+        </tr>
+        {% endfor %}
+</table>
